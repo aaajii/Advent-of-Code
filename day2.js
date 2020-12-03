@@ -1,5 +1,8 @@
 const fs = require("fs");
 const text = fs.readFileSync("./input.txt")+'';
+// const text = `1-3 a: abcde
+// 1-3 b: cdefg
+// 2-9 c: ccccccccc`
 const input = text.split("\n")
 
 let count = 0;
@@ -15,7 +18,7 @@ input.forEach(element=>{
   
   let x = password.split(key).length-1
 
-  if (x>=a && x<=b)count++
+  if ((password[a-1]==key && password[b-1]!=key) || (password[a-1]!=key && password[b-1]==key))count++
 
 
 })
